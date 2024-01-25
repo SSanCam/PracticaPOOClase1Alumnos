@@ -9,11 +9,21 @@ que hay en la cafetera)*.
 
    * En la clase se debe establecer la `capacidad` máxima en 1000 (c.c.) y la `cantidad` actual en cero (cafetera vacía).
    * `Constructor primario` con la `ubicacion`.
-   * `Constructor secundario` con la `ubicación` y la `capacidad` máxima de la cafetera. Inicializa la `cantidad` actual de café igual a la `capacidad` máxima.
-   * `Constructor secundario` con la `ubicacion`, la `capacidad` máxima y la `cantidad` actual. Si la `cantidad` actual es mayor que la `capacidad` máxima de la cafetera, la ajustará al máximo.
+   * 
+   * `Constructor secundario` con la `ubicación` y la `capacidad` máxima de la cafetera. Inicializa la `cantidad` actual 
+   * de café igual a la `capacidad` máxima.
+   * 
+   * `Constructor secundario` con la `ubicacion`, la `capacidad` máxima y la `cantidad` actual. Si la `cantidad` actual 
+   * es mayor que la `capacidad` máxima de la cafetera, la ajustará al máximo.
+   * 
    * `llenar()`: hace que la `cantidad` actual sea igual a la `capacidad`.
-   * `servirTaza(Taza)`: simula la acción de servir una `taza` con la `capacidad` que tenga la taza. Si la cafetera tiene café, llenará la taza y restará la cantidad servida en la cantidad de la cafetera.
-     Si la cantidad actual de café ***“no alcanza”*** para llenar la taza, se sirve lo que quede. Actualizar la cantidad de la cafetera y aplicar el método adecuado de la taza.
+   * 
+   * `servirTaza(Taza)`: simula la acción de servir una `taza` con la `capacidad` que tenga la taza. Si la cafetera 
+   * tiene café, llenará la taza y restará la cantidad servida en la cantidad de la cafetera.
+     Si la cantidad actual de café ***“no alcanza”*** para llenar la taza, se sirve lo que quede. 
+   * 
+   * Actualizar la cantidad de la cafetera y aplicar el método adecuado de la taza.
+   * 
    * `vaciar()`: pone la `cantidad` de café actual en cero.
    * `agregarCafe(Int)`: añade a la cafetera la `cantidad` de café indicada. ***Por defecto añade 200 c.c.*** No se puede añadir más cantidad que su capacidad máxima, si ocurriera esta circunstancia, simplemente llenaríamos la cantidad de la cafetera a su capacidad máxima.
    * `toString()`: debe retornar por ejemplo ***"Cafetera(ubicación = Salón, capacidad = 1000 c.c., cantidad = 0 c.c.)"***
