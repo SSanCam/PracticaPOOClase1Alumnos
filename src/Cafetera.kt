@@ -1,8 +1,9 @@
 class Cafetera(val ubicacion: String ) {
 
-    val capMax =  1000.00
-    var cantActual = 0.0
-
+    init{
+        val capMax =  1000.00
+        var cantActual = 0.0
+    }
 
     //CONSTRUCTOR SECUNDARIO UBICACION Y CAPACIDAD
     constructor(ubicacion: String, capacidad: Double) : this(ubicacion){}
@@ -12,6 +13,9 @@ class Cafetera(val ubicacion: String ) {
 
     }
 
+    //GETTER SETTER:
+    var ubicacion: String
+        get(field) =
 
     //METODOS:
     /**
@@ -19,8 +23,8 @@ class Cafetera(val ubicacion: String ) {
      * @return Devuelve la cafetera llena hasta su máxima capacidad
      */
     fun llenar(): Double{
-        cantActual = capMax
-        return cantActual
+        this.cantActual = this.capMax
+        return this.cantActual
     }
 
     /**

@@ -7,11 +7,6 @@ class Taza(color: String, capacidad: Double, cantidad: Double ){
         var color = Color.blanco
     }
 
-
-
-
-
-
     fun llenar(){
         cantidad = capacidad
     }
