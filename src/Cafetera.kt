@@ -1,19 +1,15 @@
-class Cafetera( ubicacion: String ) {
+/**
+ * Clase que representa una cafetera con propiedades como ubicación, capacidad y cantidad de café.
+ *
+ * @property ubicacion Ubicación de la cafetera (nombre de la sala o habitación donde se encuentra).
+ * @property capacidad Capacidad máxima de la cafetera en centímetros cúbicos (c.c.). Por defecto es 1000 c.c.
+ * @property cantidad Cantidad actual de café en la cafetera. Por defecto es 0 c.c.
+ */
+class Cafetera(ubicacion: String) {
 
-    var capacidad =  1000
-    var cantidad = 0
-
-    //CONSTRUCTOR SECUNDARIO UBICACION Y CAPACIDAD
-    constructor(ubicacion: String, capacidad: Int) : this(ubicacion){
-    }
-
-    //CONSTRUCTOR SECUNDARIO UBICACION, CAPACIDAD Y CANTIDAD
-    constructor(ubicacion: String, capacidad: Int, cantidad: Int) : this(ubicacion, capacidad){
-    }
-
-    //GETTER SETTER:
+    //GETTER SETTER - PROPIEDADES DE CLASE
     var ubicacion: String = ubicacion
-        get() =  field
+        get() = field
         set(value) {
             field = value
         }
@@ -27,49 +23,85 @@ class Cafetera( ubicacion: String ) {
         set(value) {
             field = value
         }
-    //METODOS:
+
+    //CONSTRUCTORES SECUNDARIOS:
+
+    // Constructores secundarios
+
+    /**
+     * Constructor secundario que recibe la ubicación y la capacidad de la cafetera.
+     *
+     * @param ubicacion Ubicación de la cafetera.
+     * @param capacidad Capacidad máxima de la cafetera en c.c.
+     */
+    constructor(ubicacion: String, capacidad: Int) : this(ubicacion) {
+        this.ubicacion = ubicacion
+        this.capacidad = capacidad
+    }
+
+    /**
+     * Constructor secundario que recibe la ubicación, la capacidad y la cantidad de la cafetera.
+     *
+     * @param ubicacion Ubicación de la cafetera.
+     * @param capacidad Capacidad máxima de la cafetera en c.c.
+     * @param cantidad Cantidad actual de café en la cafetera.
+     */
+    constructor(ubicacion: String, capacidad: Int, cantidad: Int) : this(ubicacion, capacidad) {
+        this.ubicacion = ubicacion
+        this.capacidad = capacidad
+        this.cantidad = cantidad
+    }
+
+
+    //METODOS DE LA CLASE CAFETERA:
     /**
      * Llenar:
-     * @return Devuelve la cafetera llena hasta su máxima capacidad
+     * @return Devuelve la cafetera llena hasta su máxima capacidad.
      */
-    fun llenar(): Int{
+    fun llenar(): Int {
         this.cantidad = this.capacidad
         return this.cantidad
     }
 
     /**
-     * Servir taza:
-     *
-
-    fun servirTaza(taza: Taza: Int){
-        if (this.cantidad > 0)
-    if (this.cantidad > taza.capacidad){
-        taza.llenar()
-        servirCAfe(taza.capacidad)
-    }
-    */
-    /**
      * Vaciar:
-     * @return Actualiza la cantidad actual a 0
+     * @return Actualiza la cantidad actual a 0.
      */
-    fun vaciar(): Int{
+    fun vaciar(): Int {
         this.cantidad = 0
         return this.cantidad
-
     }
 
     /**
-     * Agregar cafe:
-     *  @return La cantidad actual despues de agregar el café
+     * Agrega una cantidad específica de café a la cafetera.
      *
+     * @param cantidad Cantidad de café a agregar.
+     * @return La cantidad actual de café después de agregar el café.
      */
-     fun agregarCafe(cantCafe: Int, cantidadCafetera: Int = 1000): Double{
-
-
-        if (this.cantActual > 1000){
-            this.cantActual = 1000
+    fun agregarCafe(cantidad: Int): Int {
+        if (this.cantidad + cantidad > 1000) {
+            this.cantidad = 1000
+        } else {
+            this.cantidad = this.cantidad + cantidad
         }
-        return cantActual
-     }
+        return cantidad
+    }
 
+    /**
+     * Sirve taza en una taza, llenándola hasta su máxima capacidad o hasta la cantidad de café en la cafetera, lo que sea menor.
+     *
+     * @param cantidadServir Cantidad de café a servir.
+     * @param taza Taza en la que se va a servir el café.
+     * @return La cantidad actual de café en la taza después de servirla.
+     */
+    fun servirTaza(cantidadServir: Int, taza: Taza): Int {
+        if (taza.cantidad >= 0 && taza.cantidad < taza.capacidad)
+            if (this.cantidad > taza.capacidad) {
+                taza.llenar()
+                agregarCafe(taza.capacidad)
+            } else {
+                taza.cantidad += cantidadServir
+            }
+        return taza.cantidad
+    }
 }
