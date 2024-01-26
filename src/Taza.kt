@@ -42,5 +42,7 @@ class Taza(color: String = "BLANCO", capacidad: Int = 50, cantidad: Int = 0) {
         this.cantidad = minOf(this.cantidad + cantidad, capacidad)
     }
 
-
+    override fun toString(): String {
+        return "Taza(color = $color, capacidad = $capacidad c.c., cantidad = $cantidad c.c.)"
+    }
 }

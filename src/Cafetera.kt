@@ -104,4 +104,8 @@ class Cafetera(ubicacion: String) {
             }
         return taza.cantidad
     }
+
+    override fun toString(): String {
+        return "Cafetera(ubicacion = $ubicacion, capacidad = $capacidad cc, cantidad = $cantidad cc)"
+    }
 }
